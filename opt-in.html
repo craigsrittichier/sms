@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try Craig Rittichier's AI Intake Demo</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#222;background:#fff;margin:0;padding:0}
+  main{max-width:760px;margin:0 auto;padding:24px 18px 48px}
+  h1{font-size:1.8em;margin-bottom:.2em}
+  h2{font-size:1.25em;margin-top:1.6em;border-bottom:1px solid #ddd;padding-bottom:4px}
+  a{color:#0b5cad}
+  .meta{color:#555;font-size:.95em}
+  footer{margin-top:40px;font-size:.9em;color:#555;border-top:1px solid #ddd;padding-top:12px}
+  ul{padding-left:1.3em}
+  form{border:1px solid #ccc;border-radius:8px;padding:18px;background:#fafafa}
+  label.field{display:block;font-weight:600;margin-top:10px}
+  input[type=text],input[type=tel],select{width:100%;box-sizing:border-box;padding:8px;font-size:1em;border:1px solid #bbb;border-radius:4px;margin-top:4px;background:#fff}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:.95em}
+  .consent input{margin-top:5px;flex:0 0 auto;width:18px;height:18px}
+  button{margin-top:16px;padding:10px 20px;font-size:1em;background:#0b5cad;color:#fff;border:0;border-radius:4px;cursor:pointer}
+  .thanks{display:none;margin-top:12px;padding:10px;background:#fff7e0;border:1px solid #e0c060;border-radius:4px}
+  .note{font-size:.85em;color:#555}
+  .soon{display:inline-block;font-size:.75em;font-weight:600;background:#fff2c2;color:#6b5200;border:1px solid #e0c060;border-radius:10px;padding:1px 8px;vertical-align:middle}
+  .sms{max-width:420px;border:1px solid #ccc;border-radius:12px;padding:14px;background:#f4f4f6}
+  .bubble{padding:8px 12px;border-radius:14px;margin:8px 0;max-width:85%;font-size:.95em}
+  .out{background:#0b84ff;color:#fff;margin-left:auto;width:fit-content}
+  .in{background:#e5e5ea;color:#111}
+  .who{font-size:.75em;color:#666;margin:0}
+  .who.r{text-align:right}
+  .box{border-left:4px solid #0b5cad;background:#f3f7fc;padding:10px 14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Try Craig Rittichier's AI intake demo</h1>
+<p class="meta">Built by Craig Rittichier &middot; Sender number: +1 (470) 594-4820</p>
+<p><em>This is a free-trial demo; it is not yet sold to any business.</em></p>
+
+<p>This is an AI receptionist and SMS intake service being built by Craig Rittichier, a sole proprietor. The demo shows one AI intake assistant for two sample trades: <strong>plumbing</strong> and <strong>garage door repair</strong>. The demo does not text on behalf of any other company. Demo texts go only to people who opt in by texting START to +1 (470) 594-4820.</p>
+
+<div class="box">
+<p><strong>Program disclosures:</strong> AI intake demo texts from Craig Rittichier: AI intake questions, scheduling, follow-ups, reminders, and handoff to a person by text or call for the sample trade you choose. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. Phone numbers are never purchased or shared. Mobile opt-in data and consent are not shared with third parties or affiliates for marketing or promotional purposes. See the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">SMS Terms of Service</a>.</p>
+</div>
+
+<h2>Text START to +1 (470) 594-4820</h2>
+<p>To try the demo, text <strong>START</strong> to <a href="sms:+14705944820">+1 (470) 594-4820</a>. You will receive this confirmation message:</p>
+
+<div class="sms" aria-label="Example opt-in text conversation">
+  <p class="who r">You</p>
+  <div class="bubble out">START</div>
+  <p class="who">Craig Rittichier (demo) &middot; (470) 594-4820</p>
+  <div class="bubble in">Craig Rittichier (demo): You're opted in to AI intake demo texts. Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help, STOP to opt out.</div>
+</div>
+
+<h2>Consent</h2>
+<p>By texting START, you agree to receive AI intake demo text messages from Craig Rittichier at the number you text from, including AI intake questions, scheduling, follow-ups, reminders, and handoff to a person by text or call. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</p>
+<p class="note">See the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">SMS Terms of Service</a>.</p>
+
+<h2>How to opt out</h2>
+<p>Reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and no further messages:</p>
+<div class="sms" aria-label="Example opt-out conversation">
+  <p class="who r">You</p>
+  <div class="bubble out">STOP</div>
+  <p class="who">Craig Rittichier (demo) &middot; (470) 594-4820</p>
+  <div class="bubble in">Craig Rittichier (demo): You're unsubscribed and will receive no more texts. Reply START to resubscribe.</div>
+</div>
+
+<h2>How to get help</h2>
+<p>Reply <strong>HELP</strong> to any message:</p>
+<div class="sms" aria-label="Example help conversation">
+  <p class="who r">You</p>
+  <div class="bubble out">HELP</div>
+  <p class="who">Craig Rittichier (demo) &middot; (470) 594-4820</p>
+  <div class="bubble in">Craig Rittichier (demo). For help, email craigsrittichier@gmail.com. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out.</div>
+</div>
+
+<h2>Privacy</h2>
+<p><strong>Phone numbers are never purchased or shared. Mobile opt-in data and consent are not shared with third parties or affiliates for marketing or promotional purposes.</strong> See the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">SMS Terms of Service</a> for details.</p>
+
+<footer>
+  <p>This AI intake demo is a product in development by Craig Rittichier, sole proprietor. Contact: <a href="mailto:craigsrittichier@gmail.com">craigsrittichier@gmail.com</a></p>
+  <a href="index.html">Home</a> &middot; <a href="opt-in.html">Try the demo / SMS opt-in</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">SMS Terms of Service</a>
+</footer>
+</main>
+</body>
+</html>
