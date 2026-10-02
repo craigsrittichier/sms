@@ -29,6 +29,7 @@
   .who{font-size:.75em;color:#666;margin:0}
   .who.r{text-align:right}
   .box{border-left:4px solid #0b5cad;background:#f3f7fc;padding:10px 14px}
+#optin-result.ok{color:#137333;font-weight:600}#optin-result.err{color:#b00020;font-weight:600}
 </style>
 </head>
 <body>
@@ -70,12 +71,17 @@ const OPTIN_ENDPOINT = "https://tampa-ceiling-including-pointer.trycloudflare.co
 document.getElementById("sms-optin").addEventListener("submit", async (e) => {
   e.preventDefault();
   const f = e.target, out = document.getElementById("optin-result");
-  const body = { phone: f.phone.value, sms_consent: f.sms_consent.checked, website: f.website.value, submitted_at: new Date().toISOString() };
+  out.className = "";
+  let d = f.phone.value.replace(/\D/g, "");
+  if (d.length === 11 && d[0] === "1") d = d.slice(1);
+  if (d.length !== 10 || /^[01]/.test(d)) { out.className = "err"; out.textContent = "Please enter a valid 10-digit US mobile number."; f.phone.focus(); return; }
+  if (!f.sms_consent.checked) { out.className = "err"; out.textContent = "Please check the box to agree to receive texts."; return; }
+  const body = { phone: "+1" + d, sms_consent: f.sms_consent.checked, website: f.website.value, submitted_at: new Date().toISOString() };
   try {
     const r = await fetch(OPTIN_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-    const j = await r.json(); out.textContent = j.message;
+    const j = await r.json(); out.className = j.ok ? "ok" : "err"; out.textContent = j.message || (j.ok ? "You're opted in." : "That didn't go through. Please try again.");
     if (j.ok) f.reset();
-  } catch { out.textContent = "Something went wrong. You can also text START to +1 (470) 594-4820."; }
+  } catch { out.className = "err"; out.textContent = "Something went wrong. You can also text START to +1 (470) 594-4820."; }
 });
 </script>
 
