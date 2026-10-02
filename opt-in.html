@@ -57,6 +57,28 @@
 <p>By texting START, you agree to receive AI intake demo text messages from Craig Rittichier at the number you text from, including AI intake questions, scheduling, follow-ups, reminders, and handoff to a person by text or call. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</p>
 <p class="note">See the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">SMS Terms of Service</a>.</p>
 
+<form id="sms-optin">
+  <label class="field" for="phone">Mobile phone number</label>
+  <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(555) 555-5555">
+  <input name="website" type="text" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+  <label class="consent"><input type="checkbox" name="sms_consent" value="yes" required><span>By checking this box, you agree to receive AI intake demo text messages from Craig Rittichier at the number above, including AI intake questions, scheduling, follow-ups, reminders, and handoff to a person by text or call. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.</span></label>
+  <button type="submit">Text me</button>
+  <p id="optin-result" role="status"></p>
+</form>
+<script>
+const OPTIN_ENDPOINT = "https://REACHBASE_PUBLIC_HOST/api/public/optin";
+document.getElementById("sms-optin").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = e.target, out = document.getElementById("optin-result");
+  const body = { phone: f.phone.value, sms_consent: f.sms_consent.checked, website: f.website.value, submitted_at: new Date().toISOString() };
+  try {
+    const r = await fetch(OPTIN_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const j = await r.json(); out.textContent = j.message;
+    if (j.ok) f.reset();
+  } catch { out.textContent = "Something went wrong. You can also text START to +1 (470) 594-4820."; }
+});
+</script>
+
 <h2>How to opt out</h2>
 <p>Reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and no further messages:</p>
 <div class="sms" aria-label="Example opt-out conversation">
